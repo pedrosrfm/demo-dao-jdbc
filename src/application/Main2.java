@@ -5,6 +5,7 @@ import model.dao.DepartmentDao;
 import model.entities.Department;
 import model.entities.Seller;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class Main2 {
@@ -19,16 +20,22 @@ public class Main2 {
         departmentDao.insert(department);
         System.out.println("Department inserted! Id = " + department.getId());
 
-        System.out.println("===TEST 2: department findById===");
+        System.out.println("\n===TEST 2: department findById===");
         System.out.print("Type ID to search: ");
         int id = sc.nextInt();
-        Department obj = departmentDao.findById(id);
-        System.out.println(obj);
+        Department department1 = departmentDao.findById(id);
+        System.out.println(department1);
 
-        System.out.println("===TEST 3: department update===");
-        Department department1 = departmentDao.findById(3);
-        department1.setName("Music");
-        departmentDao.update(department1);
+        System.out.println("\n===TEST 3: department findAll===");
+        List<Department> list = departmentDao.findAll();
+        for (Department department2 : list){
+            System.out.println(department2);
+        }
+
+        System.out.println("\n===TEST 4: department update===");
+        Department department3 = departmentDao.findById(3);
+        department3.setName("Music");
+        departmentDao.update(department3);
         System.out.println("Department updated!");
     }
 }
