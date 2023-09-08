@@ -37,5 +37,11 @@ public class Main2 {
         department3.setName("Music");
         departmentDao.update(department3);
         System.out.println("Department updated!");
+
+        System.out.println("\n===TEST 5: department delete===");
+        System.out.print("Type department id: ");
+        int testFiveId = sc.nextInt();
+        departmentDao.deleteById(testFiveId);
+        System.out.println("Department deleted");
     }
 }
